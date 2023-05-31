@@ -1,7 +1,8 @@
-package pl.coderslab.Service;
+package pl.coderslab.service;
 
 import org.springframework.stereotype.Service;
 import pl.coderslab.dao.CategoryDao;
+import pl.coderslab.entity.Article;
 import pl.coderslab.entity.Category;
 
 import javax.transaction.Transactional;
@@ -18,5 +19,14 @@ public class CategoryService {
 
     public void save(Category category){
         categoryDao.save(category);
+    }
+
+    public Category findById(Long id) {
+        return categoryDao.findById(id);
+    }
+
+
+    public void update(Category article) {
+        categoryDao.update(article);
     }
 }
