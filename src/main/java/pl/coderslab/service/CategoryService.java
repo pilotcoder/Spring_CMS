@@ -29,4 +29,8 @@ public class CategoryService {
     public void update(Category article) {
         categoryDao.update(article);
     }
+
+    public void deleteById(Long id){
+        categoryDao.delete(id);
+    }
 }

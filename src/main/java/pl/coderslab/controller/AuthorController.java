@@ -43,7 +43,7 @@ public class AuthorController {
 
     // Wyszykiwanie wszystkich:
     @GetMapping(path = "/authors", produces = "text/plain;charset=utf-8")
-    String findAll() {
+    public String findAll() {
 
         final List<Author> authorList = authorService.findAll();
 

@@ -23,4 +23,9 @@ public class CategoryDao {
     public void update(Category category) {
         entityManager.merge(category);
     }
+
+    public void delete(Long id){
+        Category category =findById(id);
+        entityManager.remove(entityManager.contains(category) ? category : entityManager.merge(category));
+    }
 }

@@ -1,6 +1,7 @@
 package pl.coderslab.service;
 
 import lombok.RequiredArgsConstructor;
+import org.hibernate.Hibernate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.dao.ArticleDao;
@@ -26,22 +27,32 @@ public class ArticleService {
     public void save(Article article) {
         Author author = article.getAuthor();
         authorService.save(author);
-//        List<Category>  categories = article.getCategories();
-//
-//        List<Category> filteredCategories = categories.stream()
-//                .filter(a -> categoryService.findById(a.getId()) != null)
-//                .collect(Collectors.toList());
-//        article.setCategories(filteredCategories);
+
+        List<Category>  categories = article.getCategories();
+
+        List<Category> filteredCategories = categories.stream()
+                .filter(a -> categoryService.findById(a.getId()) != null)
+                .collect(Collectors.toList());
+        article.setCategories(filteredCategories);
         articleDao.save(article);
     }
 
     public Article findById(Long id) {
+
         return articleDao.findById(id);
     }
 
 
     public void update(Article article) {
         articleDao.update(article);
+    }
+
+    public void deleteById (Long id){
+        articleDao.delete(id);
+    }
+
+    public List<Article> findAllToString(){
+       return articleDao.findAll();
     }
 
 

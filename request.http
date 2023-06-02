@@ -1,10 +1,31 @@
 POST http://localhost:8080/article
 Content-Type: application/x-www-form-urlencoded;charset=utf-8
 
-title=tytul&content=content&firstName=Adam&lastName=Mickiewicz
+title=tytul&content=content&firstName=Adam&lastName=Mickiewicz&name=nazwaKtegorii&description=opis
+
+###
+POST http://localhost:8080/article/addcategory
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+
+articleId=1&name=komedia &description=zabawne
+
+###
+POST http://localhost:8080/article/update
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+
+articleId=2&title=Odkrył tajemnicę &content=lekarze go nienawidzą
+
+###
+POST http://localhost:8080/article/delete
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+
+id=1
 
 ###
 POST http://localhost:8080/author
 Content-Type: application/x-www-form-urlencoded;charset=utf-8
 
-firstName=Adam&lastName=Mickiewicz&name=nazwaKtegorii&description=opis
+firstName=J.K.&lastName=Rowling
+
+###
+GET http://localhost:8080/articles

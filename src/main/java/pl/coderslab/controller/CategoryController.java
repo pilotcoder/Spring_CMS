@@ -37,4 +37,11 @@ public class CategoryController {
         category.setDescription(description);
         categoryService.update(category);
     }
+    @PostMapping("/category/delete/")
+        public void deleteById(@PathVariable Long id){
+        categoryService.deleteById(id);
+
+        }
+
+
 }

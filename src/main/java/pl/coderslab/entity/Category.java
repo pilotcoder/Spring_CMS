@@ -3,6 +3,7 @@ package pl.coderslab.entity;
 import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "categories")
 @Setter
 @Getter
+@ToString
 public class Category {
 
     @Id
